@@ -1,0 +1,37 @@
+
+
+.image-wrapper{
+    padding-left: 30px;
+    padding-right: 26px;
+    background: #333;
+    border-radius: 48px;
+}
+.image-wrapper a{
+    font-size: 20px;
+    color: #f5f5f5;
+    font-weight: 900;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+}
+.image-wrapper a:hover{
+    color: #995aff;
+}
+.image-wrapper a svg{
+    margin-left: 5px;
+    font-size: 18px;
+    vertical-align: top;
+}
+.iconBar{
+    width: 32px;
+    height: 32px;
+    background-image: url("https://img.netpop.app/fe/9cf36e0f-50f5-438d-99f1-ff23decb7c87/im2.png");
+    background-size: 32px auto;
+    cursor: pointer;
+}
+.iconBar:not(:nth-child(1)){
+    margin-top: 28px;
+}
+.iconBar span{
+    opacity: 0
+}

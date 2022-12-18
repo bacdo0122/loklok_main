@@ -1,0 +1,1 @@
+export const types = ["TV Series", "Movie", "Anime"]
