@@ -43,6 +43,12 @@ export interface Film {
     mediaUrl:string,
     totalDuration:number
    },
- 
+   dataSubtitleList: {
+    kind: string
+  src: string
+  srcLang: string
+  label: string
+  default?: boolean
+   }[]
 
 }

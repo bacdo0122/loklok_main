@@ -1,0 +1,21 @@
+.goodle_login_input_wrap{
+    width: 100%;
+    margin-top: 10px;
+}
+.goodle_login_input_wrap .google-login_input{
+    padding: 10px 0;
+    border-radius: 6px;
+    background-color: #4484e9;
+    border-color: #000;
+    justify-content: center;
+    font-size: 16px;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+}
+.goodle_login_input_wrap .google-login_input svg{
+    margin-right: 10px;
+   
+}

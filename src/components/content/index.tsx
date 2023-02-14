@@ -8,7 +8,7 @@ interface Films{
 
 const ContentWrap = ({films,loading}:Films) => {
   
-  return <div className='filter-list' style={{width: "100%",display: "flex", flexWrap:"wrap"}}>
+  return <div className='content-body-list' style={{width: "100%",display: "flex", flexWrap:"wrap"}}>
   {!loading ? films.map((film:any)=>{
     return <ContentItem key={film.id} film={film && film} />
   }) : <LoadingSpinner />}

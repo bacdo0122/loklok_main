@@ -8,10 +8,6 @@ export const listPage = [
     text: "All contents"
    },
    {
-    link: "/articles",
-    text: "News"
-   },
-   {
     link: "/contact",
     text: "Contact Us"
    }

@@ -78,3 +78,33 @@
     border-bottom-color: #ebeef5;
     left: 54.3906px;
 }
+
+@media screen and (max-width: 1440px) {
+    .input_inner{
+        width: 180px!important  ;
+    }
+}
+
+@media screen and (max-width: 1140px){
+    .dropdown-language .select-language-label{
+        display:none;
+    }
+    .dropdown-language .dropdown-icon{
+        display:none;
+    }
+}
+
+@media screen and (max-width: 750px){
+    .nav-list{
+        display: none!important;
+    }
+    .input_inner{
+        display: none!important;
+    }
+    .user{
+        display: none!important;
+    }
+    .navbar{
+        padding: 0 20px!important;
+    }
+}

@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
+import authReducer from '../reducers/auth';
 import filmReducer from '../reducers/film';
 
 
 const store = configureStore({
     reducer: {
-        film: filmReducer
+        film: filmReducer,
+        auth: authReducer
     },
 
     middleware: (getDefaultMiddleware) => {

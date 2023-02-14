@@ -52,7 +52,7 @@ export const Slide = ({films}: any) => {
             >
               {film.name}
             </h2>
-            <ImageLoader src={film.horizontalPoster} style={{width: "100%", height: "100%", objectFit: "cover"}}  onClick={()=>window.open(`/detail/$${film.id}`,'_blank')}/>
+            <ImageLoader src={film.horizontalPoster} style={{width: "100%", height: "100%", objectFit: "cover"}}  onClick={()=>window.open(`/detail/${film.id}`,'_blank')}/>
             </SwiperSlide>
         })}
         <ArrowBackIosNewIcon ref={prevRef} sx={{

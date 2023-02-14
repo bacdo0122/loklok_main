@@ -1,16 +1,16 @@
 .filter-wrap{
     margin-bottom: 36px
 }
-.filter-wrap .first-lever{
+ .first-lever{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
 }
-.filter-wrap .first-lever .first-lever-item{
+ .first-lever .first-lever-item{
     padding-bottom: 14px;
     color: #f5f5f5 !important;
 }
-.filter-wrap  .filter-item-label{
+  .filter-item-label{
     font-weight: bold;
     font-size: 18px;
     line-height: 120%;
@@ -22,14 +22,14 @@
     flex-shrink: 0;
 }
 
-.filter-wrap  .filter-item-label:hover{
+  .filter-item-label:hover{
     color: #995aff;
     cursor: pointer;
 }
-.filter-wrap .first-lever .firest-lever-item-active{
+ .first-lever .firest-lever-item-active{
     position: relative;
 }
-.filter-wrap .first-lever .firest-lever-item-active::after{
+ .first-lever .firest-lever-item-active::after{
     content: " ";
     width: 32px;
     height: 4px;
@@ -40,13 +40,16 @@
     left: 50%;
     transform: translateX(-50%);
 }
-.filter-wrap .filer-area{
+ .filer-area{
     margin-top: 20px;
 }
-.filter-wrap .filer-area .filter-row{
+ .filer-area .filter-row{
     display: flex;
     flex-wrap: wrap;
 }
-.filter-wrap .filer-area .filter-row .filter-item-label-active{
+ .filer-area .filter-row .filter-item-label-active{
     color: #f5f5f5;
+}
+.filter-list{
+    margin-bottom: 36px;
 }

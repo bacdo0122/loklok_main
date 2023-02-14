@@ -1,0 +1,18 @@
+.filter-item{
+    display:flex;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 30px;
+    margin-top: 30px;
+}
+.filter-item_text{
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 120%;
+    color: #999;
+    cursor: pointer;
+}
+.filter-item_text_active{
+    color: #fff;
+}

@@ -1,0 +1,97 @@
+.comment{
+    margin-top: 20px;
+    margin-left: 2.5rem;
+}
+.comment .comment-wrap{
+
+}
+.comment .comment-wrap .comment-img-content{
+    display: flex;
+}
+.comment .comment-wrap .comment-img-content .comment-img{
+    margin-right: 20px;
+    width: 45px;
+    height: 45px;
+}
+.replies-wrap{
+position: relative;
+
+}
+.reply .comment-img{
+    position: relative;
+}
+.reply-user-line{
+    position: absolute;
+    top: 50%;
+    width: 18px;
+    height: 2px;
+    left: -18px;
+    background-color: blue;
+}
+.link-user-line{
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    width: 2px;
+    background-color: blue;
+    height: calc(100% + 50px);
+}
+.comment .comment-wrap .comment-img-content .comment-img a img{
+
+    width:100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.comment .comment-wrap .comment-img-content .comment-content {
+    display: flex;
+    flex-direction: column;
+    
+}
+.comment .comment-wrap .comment-img-content .comment-content .content-info-wrap{
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 12px;
+}
+.comment .comment-wrap .comment-img-content .comment-content .content-info-wrap .content-wrap{
+    color: #000;
+}
+.comment .comment-wrap .comment-img-content .comment-content .content-info-wrap .content-name{
+    color: #000;
+    font-weight: bold;
+}
+.content-list{
+    display:flex;
+    margin: 5px 0;
+
+}
+
+.content-list .content-item{
+    margin: 0 10px;
+}
+.content-list .content-item svg, .content-list .content-item span{
+    color: #fff;
+    cursor: pointer;
+}
+.content-list .content-time svg{
+    cursor:auto!important;
+
+}
+.messageInput{
+    display: none;
+    position:relative
+}
+.input_active{
+    display:block;
+    margin-left: 40px;
+}
+.getReply{
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 2.5rem;
+}
+.getReply span{
+    display:flex;
+    align-items: center;
+}

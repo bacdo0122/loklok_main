@@ -6,12 +6,15 @@ import {styled, Box, BoxProps} from '@mui/material'
 import { LazyLoadImage,trackWindowScroll } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import axios from 'axios';
+import { fetcher } from '../helper/fetch';
 import Banner from '../components/banner';
 import ComponentWrap from '../components/common';
+import { getAccessToken, removeAccessToken, removeRefreshToken } from '../helpers/localStorage';
+import { useNavigate } from 'react-router-dom';
 
 const Body = styled(Box)<BoxProps>({
-  minHeight: "calc((100vh - 78px) -150px)",
-  maxWidth: "1440px",
+  minHeight: "calc((100vh - 78px) - 150px)",
+  maxWidth: "1640px",
   margin: "0 auto"
 })
 const SwipeWrap = styled(Box)<BoxProps>({
@@ -24,16 +27,23 @@ const SwipeWrap = styled(Box)<BoxProps>({
 })
 
 
-const ImageContainerOverlay = styled(Box)<BoxProps>({
-  width: "190px", height: "265px", margin: "40px 10px", background: "#c8c8c8"
-})
 
 const Home = () => {
   const [getBanner, setGetBanner] = React.useState([])
+  const isAuth = useAppSelector((state:any) => state.auth.isAuth)
+  const navigate = useNavigate();
   React.useEffect(()=>{
-    const getFilm = async () =>{
-      const res = await axios.get(process.env.REACT_APP_API_BASE_URL + `/banner?page=1&limit=100`)
-      setGetBanner(res.data.data)
+   
+    const getFilm = async () =>{ 
+       try {
+        const res = await fetcher(`/banner?page=1&limit=100`, getAccessToken() as string);
+        setGetBanner(res.data) 
+       } catch (error) {
+        removeAccessToken();
+        removeRefreshToken();
+        // navigate("/login")
+       }
+
   }
   getFilm();
   },[])
@@ -45,7 +55,7 @@ const Home = () => {
       return film.mainBanner === true
      })}/>
    </SwipeWrap>
-   <div className="flex"  style={{maxWidth: "1280px", margin: "0 auto"}}>
+   <div className="flex"  style={{maxWidth: "1480px", margin: "0 auto"}}>
      {getBanner.length> 0 && getBanner.map((banner:any)=>{
       return <Banner key={banner.id} bannerType={banner.id} name={banner.name}/>
      })}

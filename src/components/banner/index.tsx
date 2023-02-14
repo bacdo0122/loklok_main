@@ -6,6 +6,8 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { ImageLoader } from '../../helper/ImageLoader';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import '../../css/Home.css'
+import { getAccessToken } from '../../helpers/localStorage';
+import { fetcher } from '../../helper/fetch';
 
 interface IAppProps {
     bannerType:string,
@@ -18,13 +20,14 @@ const Banner= ({bannerType,name}:IAppProps) => {
     const [film, setFilm] = useState<Film[]>([])
     useEffect(()=>{
         const getFilm = async () =>{
-            const res = await axios.get(process.env.REACT_APP_API_BASE_URL + `/films?page=1&limit=6&bannerType=${bannerType}`)
-            const newData = res.data.data;
+            // const res = await axios.get(process.env.REACT_APP_API_BASE_URL + `/films?page=1&limit=6&bannerType=${bannerType}`)
+            const res = await fetcher(`/films?page=1&limit=6&bannerType=${bannerType}`, getAccessToken() as string)
+            const newData = res.data;
             setFilm(newData)
         }
         getFilm();
     },[])
-return <div >
+return <div className='album-wrap'>
         <div className="banner-header" style={{display:"flex", justifyContent: "space-between", alignItems: "center"}}>
             <h1 className="title" style={{marginTop: "30px", color:"#fff", marginBottom: "30px"}}>{name}</h1>
             <div className="image-wrapper" style={{display:"flex"}}>
@@ -36,7 +39,7 @@ return <div >
         <div className="banner_control" style={{display: "flex", alignItems: "center"}}>
       
         {film.map((film:any, index:number) =>{
-       return     <a  key={index} style={{margin: "0 20px 20px 0", cursor:"pointer", width: "190px"}} onClick={()=>window.open(`/detail/${film.id}`,'_blank')}>
+       return     <a className='video-item' key={index} style={{margin: "0 20px 20px 0", cursor:"pointer", width: "15.32%"}} onClick={()=>window.open(`/detail/${film.id}`,'_blank')}>
         <ImageLoader style={{width: "100%", height: "265px",borderRadius: "8px",  background: "#c8c8c8"}}
        src={film.verticalPoster} />
        <h3 className="title" style={{

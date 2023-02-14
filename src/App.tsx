@@ -1,18 +1,20 @@
 import React from 'react';
-import Pages from './router/Routers';
+import { SWRConfig } from 'swr';
 import './App.css';
-import { useAppDispatch } from './stores/hook';
-import useFilm from './hook/useFilm'
-function App() {
-  const dispatch = useAppDispatch();
-  useFilm(dispatch);
-  return (
-    <React.Suspense fallback={<div>Loading...</div>}>
-    <Pages />
-  </React.Suspense>
-    
-   
+import Layout from './components/layout';
+import useFetchFilm from './hook/useFetchFilm';
+import Pages from './router/Routers';
 
+function App() {
+  useFetchFilm();
+  return (
+    <SWRConfig value={{}}>
+      <Layout>
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <Pages />
+        </React.Suspense>
+      </Layout>
+    </SWRConfig>
   );
 }
 
