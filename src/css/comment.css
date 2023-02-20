@@ -95,3 +95,33 @@ position: relative;
     display:flex;
     align-items: center;
 }
+
+#message{
+    border: none;
+    outline: none;
+    
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 8px;
+    width: 100%;
+}
+.message{
+    height: 30px;
+    outline: none;
+    width: 250px;
+    position: relative;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+}
+.message button{
+    height: 30px;
+    position: absolute;
+    top: 0;
+    outline: none;
+    border: none;
+    width: 40px;
+    
+    right: 0;
+    cursor: pointer;
+}

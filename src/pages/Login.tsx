@@ -65,11 +65,13 @@ const Login = () => {
         email,
         password,
       });
+      console.log("data:", data);
+      
       const { accessToken, refreshToken } = data.data;
       setAccessToken(accessToken);
       setRefreshToken(refreshToken);
       dispatch(setAuth(true));
-      navigate(-1);
+      navigate("/");
     } catch (error: any) {
       setError('email', {});
       setError('password', {});

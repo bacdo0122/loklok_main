@@ -80,10 +80,10 @@ export default function Comments({ filmId }: any) {
 
   return (
     <div style={{ marginTop: '40px' }}>
-      <div>
+      <div className='message'>
         <input type="text" id="message" ref={inputRef} />
         <button onClick={() => handleSubmitNewMessage('comment', 'comment', inputRef?.current?.value as string, 0)}>
-          Submit
+          Send
         </button>
       </div>
       <ul id="messages">

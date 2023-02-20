@@ -123,7 +123,8 @@ const CommentItem = (props: Props) => {
                         </span>}
                     </div>}
             </ul>
-            <div className={popInput ? `messageInput input_active ` : `messageInput`}>
+            <div className={popInput ? `messageInput input_active ` : `messageInput `}>
+                <div className="message">
                 <input type="text" id="message" ref={inputRef} />
                 {popInput && <div className="reply-user-line"></div>}
                 <button onClick={() => {
@@ -135,7 +136,8 @@ const CommentItem = (props: Props) => {
                         comment.id
                     )
 
-                }}>Submit</button>
+                }}>Send</button>
+                </div>
             </div>
             {((comment.replies && comment.replies.length > 0) || replies.length > 0 || popInput) &&
                 <div className="link-user-line">

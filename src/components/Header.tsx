@@ -69,7 +69,7 @@ const Header = ({ data }: any) => {
             })}
         </ul>
       </ListNavBar>
-      <ListNavBar className={classes.NavBarWrap}>
+      <ListNavBar className={`${classes.NavBarWrap} list-nav-bar`}>
         <InputSearchWrap>
           <TextField
             placeholder="Search"
@@ -81,7 +81,7 @@ const Header = ({ data }: any) => {
             InputProps={{
               className: `${classes.input} ${classes.wrap} input_inner`,
               endAdornment: (
-                <InputAdornment position="end">
+                <InputAdornment position="start">
                   <SearchIcon sx={{ color: '#f5f5f5', cursor: 'pointer' }} />
                 </InputAdornment>
               ),
