@@ -25,15 +25,17 @@ const DetailFilm = () => {
       // console.log(res)
       if (!episodeId) setEpisode(JSON.parse(res.data.episodes)[0].id);
       
-      const subtitleList = res.dataSubtitleList.map((subtitle: any) => ({
-        kind: 'subtitles',
-        src: subtitle.subtitlingUrl,
-        srcLang: subtitle.languageAbbr,
-        label: subtitle.languageAbbr,
-        default: true,
-      }));
+      // const subtitleList = res.dataSubtitleList.map((subtitle: any) => ({
+      //   kind: 'subtitles',
+      //   src: subtitle.subtitlingUrl,
+      //   srcLang: subtitle.languageAbbr,
+      //   label: subtitle.languageAbbr,
+      //   default: true,
+      // }));
       // console.log({...res.data, dataSubtitleList:subtitleList })
-      setFilm({ ...res, dataSubtitleList: subtitleList });
+      // setFilm({ ...res, dataSubtitleList: subtitleList });
+        setFilm({ ...res });
+
     };
     getFilm();
   }, [episodeId, id]);

@@ -28,8 +28,8 @@ const Banner= ({bannerType,name}:IAppProps) => {
         getFilm();
     },[])
 return <div className='album-wrap'>
-        <div className="banner-header" style={{display:"flex", justifyContent: "space-between", alignItems: "center"}}>
-            <h1 className="title" style={{marginTop: "30px", color:"#fff", marginBottom: "30px"}}>{name}</h1>
+        <div className="banner-header" style={{display:"flex", justifyContent: "space-between", alignItems: "center",margin: "30px 0"}}>
+            <h1 className="title" style={{ color:"#fff", fontSize: "24px"}}>{name}</h1>
             <div className="image-wrapper" style={{display:"flex"}}>
                     <a href={`/banner/${bannerType}`} className="more-btn" target="_blank" rel="noreferrer">
                         More <ChevronRightIcon />
@@ -39,8 +39,8 @@ return <div className='album-wrap'>
         <div className="banner_control" style={{display: "flex", alignItems: "center"}}>
       
         {film.map((film:any, index:number) =>{
-       return     <a className='video-item' key={index} style={{margin: "0 20px 20px 0", cursor:"pointer", width: "15.32%"}} onClick={()=>window.open(`/detail/${film.id}`,'_blank')}>
-        <ImageLoader style={{width: "100%", height: "265px",borderRadius: "8px",  background: "#c8c8c8"}}
+       return     <a className='video-item' key={index} style={{margin: "0 20px 20px 0", cursor:"pointer", width: "16%"}} onClick={()=>window.open(`/detail/${film.id}`,'_blank')}>
+        <ImageLoader style={{width: "100%",borderRadius: "8px",  background: "#c8c8c8"}}
        src={film.verticalPoster} />
        <h3 className="title" style={{
         marginTop: "14px",

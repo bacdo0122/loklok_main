@@ -7,9 +7,8 @@ interface Props {
 
 export const CustomTabs = memo(({ data }: Props) => {
   const [selectedTab, setSelectedTab] = useState<number>(data[0].id);
-  console.log(selectedTab)
   return (
-    <div className="customtab">
+    <div className="customtab" style={{padding: "0 20px"}}>
       <div className="first-lever">
         {data.map((item) => {
           return (
