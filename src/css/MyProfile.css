@@ -27,3 +27,29 @@
 .profile_body .profile_info .info_wrap div span{
     color: #ccc;
 }
+
+@media screen and (max-width: 768px) {
+    .css-1orc49x{
+        min-width: auto!important;
+    }
+    .profile_body{
+        flex-direction: column;
+        align-items: center;
+        padding-top: 100px;
+    }
+    .profile_body img{
+        width: 400px;
+        height: 400px;
+    }
+    .profile_info{
+        margin-top: 50px;
+    }
+}
+@media screen and (max-width: 425px) {
+ 
+    .profile_body img{
+        width: 250px;
+        height: 250px;
+    }
+  
+}

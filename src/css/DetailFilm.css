@@ -258,3 +258,40 @@
     line-height: 120%;
     color: #f5f5f5;
 }
+
+@media screen and (max-width: 1024px) {
+    .css-1orc49x{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .recomment-item{
+        width: 25%;
+    }
+    .css-1orc49x{
+        min-width: auto!important;
+    }
+    .detail-content{
+        height: 450px;
+    }
+}
+@media screen and (max-width: 425px) {
+    .recomment-item{
+        width: 32%;
+    }
+    .detail-content{
+        height: 300px;
+    }
+    .comment .comment-wrap .comment-img-content .comment-img{
+        margin-right: 5px;
+        width:30px;
+        height:30px;
+    }
+    .content-list .content-item{
+        margin: 0 5px;
+    }
+    .comment{
+        
+    }
+}

@@ -57,7 +57,7 @@ position: relative;
     color: #000;
 }
 .comment .comment-wrap .comment-img-content .comment-content .content-info-wrap .content-name{
-    color: #000;
+    color: #ccc;
     font-weight: bold;
 }
 .content-list{

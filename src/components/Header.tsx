@@ -70,7 +70,7 @@ const Header = ({ data }: any) => {
         </ul>
       </ListNavBar>
       <ListNavBar className={`${classes.NavBarWrap} list-nav-bar`}>
-        <InputSearchWrap>
+        <InputSearchWrap style={{marginRight: "50px"}} className="input-wrap">
           <TextField
             placeholder="Search"
             onChange={handleSearchFilm}
@@ -117,19 +117,6 @@ const Header = ({ data }: any) => {
             </div>
           )}
         </InputSearchWrap>
-        <Link to="/" className={classes.wrap}>
-          <FileDownloadIcon />
-          Download APP
-        </Link>
-        <Box>
-          <Box className={`${classes.wrap} dropdown-language`}>
-            <LanguageIcon />
-            <Box component="span" className="select-language-label">
-              English
-            </Box>
-            <ExpandMoreIcon className="dropdown-icon" />
-          </Box>
-        </Box>
         <Box component="span" className="user">
           <Tooltip title="Account settings">
             <IconButton

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useSWR from 'swr';
 import { fetcherUser } from '../helper/fetch';
-import { getAccessToken } from '../helpers/localStorage';
+import { getAccessToken, removeAccessToken, removeRefreshToken } from '../helpers/localStorage';
 import { setAuth, setUser } from '../reducers/auth';
 import { useAppDispatch, useAppSelector } from '../stores/hook';
 export const useAuthenticated = () => {
@@ -27,7 +27,15 @@ export const useAuthenticated = () => {
     checkUser();
   }, [user, userError]);
   useEffect(()=>{
-    console.log("get Me");
+    if(getAccessToken()){
+      if(!user){
+        // dispatch(setUser(null));
+        // dispatch(setAuth(false));
+        // removeAccessToken();
+        // removeRefreshToken();
+      }
+      
+    }
     
     reloadUser();
   },[location.pathname])

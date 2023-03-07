@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { axiosInstance } from '../apis';
+import { removeAccessToken, removeRefreshToken } from '../helpers/localStorage';
 export const fetcher = (url: string, token: string) => {
   if (url) {
     return axiosInstance
@@ -20,6 +21,9 @@ export const fetcherUser = (url: string, token: string) => {
       })
       .then((res) => {
         return res.data;
+      }).catch(()=>{
+        removeAccessToken();
+        removeRefreshToken();
       });
   }
 };

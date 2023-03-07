@@ -4,19 +4,17 @@ export interface Film {
     id: number,
     updatedAt: string,
     name: string,
-    filmId: number,
-    domainType: number,
     description: string,
     year: number,
-    votes: number,
     score: number,
-    episodes: string,
-    drameType: string,
     areas: string,
-    likeList: string,
+    likeList: [],
     verticalPoster: string,
     horizontalPoster: string,
-    views: number,
+    viewDayly: number,
+    viewWeekly: number,
+    url:string,
+    viewMonthly: number,
     actors: {
         id: number,
         updateAt: string,
@@ -34,21 +32,6 @@ export interface Film {
         updateAt: string,
         name:string,
     }[]
-   },
-   dataUrl: {
-    businessType: number,
-    currentDefinition:string,
-    episodeId:string,
-
-    mediaUrl:string,
-    totalDuration:number
-   },
-   dataSubtitleList: {
-    kind: string
-  src: string
-  srcLang: string
-  label: string
-  default?: boolean
-   }[]
+   }
 
 }

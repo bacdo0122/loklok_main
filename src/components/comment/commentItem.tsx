@@ -128,14 +128,15 @@ const CommentItem = (props: Props) => {
                 <input type="text" id="message" ref={inputRef} />
                 {popInput && <div className="reply-user-line"></div>}
                 <button onClick={() => {
-                    console.log(comment)
                     handleSubmit(
                         (!comment.parent_comment_id && !comment.parent_reply_id) ? "comment" : "reply",
                         "reply",
                         inputRef?.current?.value as string,
                         comment.id
                     )
-
+                    if(inputRef.current?.value){
+                        inputRef.current.value = "";
+                      }
                 }}>Send</button>
                 </div>
             </div>

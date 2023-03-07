@@ -90,22 +90,25 @@ export const ContentBody = ({ id, title }: Props) => {
     let query = '';
     let getCategoryId = 0;
     if(selectedRegions !== "All Regions") query = query + `&region=${selectedRegions}`
-    if(selectedCategories !== "All Categories") query = query + `&categories=${selectedCategories}`
+  
     if(selectedTimes !== "All Time Periods") query = query + `&year=${selectedTimes}`
     if(selectedOrders) query = query + `&orderFilm=${selectedOrders}`
 
-    if (selectedCategories !== "All Categories") {
+    if (selectedCategories !== "All Categories" && selectedCategories !== "other" ) {
       const getCategory = await axios.get(
-        process.env.REACT_APP_API_BASE_URL + `/categories/getOne/${
+        process.env.REACT_APP_API_BASE_URL + `/categories/${
           selectedCategories
         }`
       );
-      getCategoryId = getCategory.data?.id;
+      
+      getCategoryId = getCategory.data.data?.id;
+      query = query + `&categories=${getCategoryId}`
     }
+    if(selectedCategories === "other")   query = query + `&categories=0`
 
     try {
       const res = await axios.get(process.env.REACT_APP_API_BASE_URL + `/films?page=1&limit=1000&type=${title}` + query); 
-      console.log(res)
+      console.log("query:", query)
       if(res.data.data.length > 0){
         setFilms(res.data.data);
       }

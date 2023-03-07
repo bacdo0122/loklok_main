@@ -7,6 +7,9 @@
     font-weight: bold;
     line-height: 120%
 }
+.banner-info a:hover{
+    color: #ccc;
+}
 .banner-film .title{
     font-size: 30px;
     margin: 20px 0;
@@ -61,4 +64,34 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 1024px){
+    .css-1orc49x{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+@media screen and (max-width: 768px){
+    .banner-film-item{
+        width: 30%;
+    }
+}
+@media screen and (max-width: 425px){
+    .css-1orc49x{
+        min-width: auto!important;
+    }
+    .banner-film-list{
+        flex-wrap: wrap;
+    }
+    .banner-film-item{
+        width: 43%;
+        margin-right: 20px;
+    }
+}
+@media screen and (max-width: 320px){
+    .banner-film-item{
+        width: 100%;
+      
+    }
 }

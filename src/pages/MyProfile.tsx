@@ -3,11 +3,10 @@ import { HeaderWrap } from '../components/common/HeaderWrap'
 import { useAppSelector } from '../stores/hook'
 import '../css/MyProfile.css'
 const MyProfile = () =>{
-    const user = useAppSelector((state:any)=>state.auth.user)
-    console.log(user);    
+    const user = useAppSelector((state:any)=>state.auth.user)   
     return (
         <HeaderWrap>
-            <div className="profile_body">
+         {user &&    <div className="profile_body">
              <img src={user.avatar} />
              <div className="profile_info">
                 <div className="info_wrap">
@@ -18,7 +17,7 @@ const MyProfile = () =>{
                     
                 </div>
              </div>
-            </div>
+            </div>}
         </HeaderWrap>
     )
 }

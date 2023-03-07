@@ -13,7 +13,7 @@ export default function Comments({ filmId }: any) {
 
   const user = useAppSelector((state: any) => state.auth.user);
   const [change, setChange] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const handleSubmitNewMessage = (type: string, table: string, content: string, parent_id: number) => {
     if (!user) {
@@ -32,6 +32,9 @@ export default function Comments({ filmId }: any) {
         room: filmId,
         userId: user.id,
       });
+    }
+    if(inputRef.current?.value){
+      inputRef.current.value = "";
     }
   };
   useEffect(() => {

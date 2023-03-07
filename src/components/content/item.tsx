@@ -6,10 +6,10 @@ const ContentItem = ({film}:any) => {
 
   return <>
                   <div className="banner-film-item">
-                  <a href={`/detail/${film.id}`} className="banner-film-item-wrap" target="_blank" rel="noreferrer">
+                  <a href={`/detail/${film.id}`} className="banner-film-item-wrap"  rel="noreferrer">
                   <div className="video-card-wrap">
                     <div className="img-wrap-vertical">
-                      <img src={film && film.verticalPoster} alt={film &&  film.name} loading="lazy"/>
+                      <img src={`https://films-server.s3.ap-southeast-1.amazonaws.com/images/${film.verticalPoster}`} alt={film &&  film.name} loading="lazy"/>
                     </div>
                     <h3 className="video-card-title">
                     {film &&  film.name}

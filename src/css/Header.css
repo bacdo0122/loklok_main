@@ -1,8 +1,8 @@
 .select-dropdown{
-    position: fixed;
-    min-width: 280px;
+    position: absolute;
+    width: calc(100% - 20px);
     top:50px;
-
+    left: 20px;
     z-index: 2000;
     border: 0;
     border-radius: 4px;
@@ -84,9 +84,12 @@
 a.makeStyles-wrap-20{
     white-space: nowrap;
 }
+.navbar{
+    right: 0;
+}
 @media screen and (max-width: 1440px) {
     .input_inner{
-        width: 180px!important  ;
+        width: 400px!important  ;
     }
 }
 
@@ -98,35 +101,52 @@ a.makeStyles-wrap-20{
         display:none;
     }
 }
-@media screen and (max-width: 962px){
+
+@media screen and (max-width: 1024px){
     .input_inner{
-        width: auto!important;
+        width: 200px!important;
     }
-    .input_inner input{
-        width: 0px!important;
-    }
-    .input_inner.makeStyles-wrap-20{
-        gap: 0;
-    }
-}
-@media screen and (max-width: 768px){
-    .nav-list{
-        display: none!important;
-    }
-    .input_inner{
-        display: none!important;
-    }
-    .user{
-        display: none!important;
+    .user buttton{
+        margin-left: 0!important;
     }
     .navbar{
         padding: 0 20px!important;
     }
+    .input-wrap{
+        margin-right: 0!important;
+    }
+}
+@media screen and (max-width: 768px){
+
     a.makeStyles-wrap-20{
         margin-left:15px!important;
+    }
+    .input_inner{
+        width: 200px!important;
+    }
+    .navbar{
+        max-width: 100%;
+        padding: 0 20px !important;
+    }
+    .input-wrap{
+        margin-right: 10px!important;
+    }
+    .nav-list{
+        display: none!important;
     }
 }
 
 @media screen and (max-width: 425px){
-    
+    .nav-list{
+        display: none!important;
+    }
+    .input_inner{
+        width: 150px!important;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .input-wrap{
+       display: none!important;
+    }
 }

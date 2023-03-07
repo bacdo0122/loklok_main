@@ -82,15 +82,17 @@ const Login = () => {
     }
   };
   return (
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs" sx={{
+    <ThemeProvider theme={theme} >
+      <div style={{backgroundColor:"#000"}}>
+      <Container component="main"  maxWidth="xs" sx={{
         height:"100vh",
         display:"flex",
         justifyContent:"center",
         alignItems:"center",
-        minHeight: "100vh"
+        minHeight: "100vh",
+       
       }}>
-        <MainWrap>
+        <MainWrap >
           <CssBaseline />
           <Box
             sx={{
@@ -171,6 +173,7 @@ const Login = () => {
           </Box>
         </MainWrap>
       </Container>
+      </div>
     </ThemeProvider>
   );
 };

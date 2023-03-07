@@ -13,28 +13,15 @@ import { getAccessToken } from '../helpers/localStorage';
 
 const DetailFilm = () => {
   const { id, episodeId } = useParams();
-  const [episode, setEpisode] = useState(episodeId);
   const [expand, setExpand] = useState(false);
   const navi = useNavigate();
   const [film, setFilm] = useState<Film | null>(null);
   useEffect(() => {
     const getFilm = async () => {
-      const res = episodeId
-        ? await fetcher(`/films/${id}?episodeId=${episodeId}`, getAccessToken() as string)
-        : await fetcher(`/films/${id}`, getAccessToken() as string);
-      // console.log(res)
-      if (!episodeId) setEpisode(JSON.parse(res.data.episodes)[0].id);
+      const res = await fetcher(`/films/${id}`, getAccessToken() as string);
+      console.log(res.data);
       
-      // const subtitleList = res.dataSubtitleList.map((subtitle: any) => ({
-      //   kind: 'subtitles',
-      //   src: subtitle.subtitlingUrl,
-      //   srcLang: subtitle.languageAbbr,
-      //   label: subtitle.languageAbbr,
-      //   default: true,
-      // }));
-      // console.log({...res.data, dataSubtitleList:subtitleList })
-      // setFilm({ ...res, dataSubtitleList: subtitleList });
-        setFilm({ ...res });
+        setFilm(res);
 
     };
     getFilm();
@@ -44,25 +31,19 @@ const DetailFilm = () => {
       <HeaderWrap>
         <div className="detail-content">
           <div className="video-wrap">
-            {film && (
-              <ReactPlayer
+          {film && <video width="100%" height="100%" controls autoPlay>
+            <source src={`https://films-server.s3.ap-southeast-1.amazonaws.com/videos/${film?.data.url}`} type="video/mp4"/>
+          </video>}
+          {/* <ReactPlayer
                 config={{
                   file: {
                     attributes: {
                       crossOrigin: 'true',
                     },
-                    tracks: [
-                      {
-                        kind: 'subtitles',
-                        src: 'http://localhost:3001/a.vtt',
-                        srcLang: 'en',
-                        label: 'en',
-                        default: true,
-                      },
-                    ],
+                    
                   },
                 }}
-                url={film?.dataUrl?.mediaUrl}
+                url="http://localhost:3000/public/The.Brawler.2019.1080p.WEBRip.x264-(19)(1).mp4"
                 controls={true}
                 playing={true}
                 playIcon={<PlayArrowIcon />}
@@ -70,48 +51,9 @@ const DetailFilm = () => {
                 className="react-player"
                 width="100%"
                 height="100%"
-              />
-            )}
+              /> */}
           </div>
-          <div className="episodes-wrap">
-            <div className="episodes-module">
-              <div className="episodes-title">{film && film?.data.name}</div>
-              <div className="episodes-list-wrap">
-                <div className="episodes-list">
-                  {film && JSON.parse(film?.data.episodes).length > 1 ? (
-                    JSON.parse(film?.data.episodes).map((item: any) => {
-                      return (
-                        <div
-                          key={item.episodeNo}
-                          className={Number(episode) === item.id ? 'episode-item episode-item-active' : 'episode-item'}
-                          onClick={() => {
-                            setEpisode(item.id);
-                            navi(`/detail/${film?.data.id}/${item.id}`);
-                          }}
-                        >
-                          {Number(episode) === item.id && <PlayArrowIcon />}
-                          <span>{item.episodeNo}</span>
-                        </div>
-                      );
-                    })
-                  ) : (
-                    <>
-                      <div className="second-title">Related series</div>
-                      <div className="alert">
-                        <img
-                          src="https://static.netpop.app/img/nocontent220120.png"
-                          alt="loklok placeholder"
-                          width="200"
-                          height="200"
-                        />
-                        <h1>Unable to locate resource</h1>
-                      </div>
-                    </>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
+          
         </div>
         <div className="info-wrap">
           <div className="info">
@@ -123,7 +65,7 @@ const DetailFilm = () => {
               </div>
               <div className="icon-point">&nbsp;·&nbsp;</div>
               <div className="area-category">
-                {film && JSON.parse(film?.data.areas)[0].name} · {film && film?.data.year}
+                {film && film?.data.areas} · {film && film?.data.year}
               </div>
             </div>
             <div className="area-category category-line">
@@ -147,25 +89,20 @@ const DetailFilm = () => {
           <div className="subtitle">You may like</div>
           <ul className="recommend-list">
             {film &&
-              JSON.parse(film?.data.likeList).map((item: any, index: number) => {
+              film?.data.likeList.map((item: any, index: number) => {
                 return (
                   <li className="recomment-item" key={index}>
-                    <div
+                    <a
+                    href={`/detail/${item.id}`}
                       className="recomment-item-wrap"
-                      onClick={async () => {
-                        const res = await axios.get(
-                          process.env.REACT_APP_API_BASE_URL + `/films/getId/${item.category}/${item.id}`,
-                        );
-                        navi(`/detail/${res.data.id}`);
-                      }}
                     >
                       <div className="video-card-wrap">
                         <div className="img-wrap-vertical">
-                          <img src={item.coverVerticalUrl} alt={item.name} loading="lazy" />
+                          <img src={`https://films-server.s3.ap-southeast-1.amazonaws.com/images/${item.verticalPoster}`} alt={item.name} loading="lazy" />
                         </div>
                         <h3 className="video-card-title">{item.name}</h3>
                       </div>
-                    </div>
+                    </a>
                   </li>
                 );
               })}

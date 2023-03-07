@@ -53,3 +53,9 @@
 .filter-list{
     margin-bottom: 36px;
 }
+
+@media screen and (max-width: 320px){
+    .first-lever .first-lever-item{
+        margin-right: 20px;
+    }
+}
