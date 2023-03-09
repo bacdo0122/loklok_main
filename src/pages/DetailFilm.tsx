@@ -1,7 +1,7 @@
 import GifIcon from '@mui/icons-material/Gif';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import axios from 'axios';
-import React,{ useEffect, useState } from 'react';
+import React,{ useEffect, useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { useNavigate, useParams } from 'react-router-dom';
 import Comments from '../components/comment';
@@ -14,18 +14,24 @@ import { getAccessToken } from '../helpers/localStorage';
 const DetailFilm = () => {
   const { id, episodeId } = useParams();
   const [expand, setExpand] = useState(false);
-  const navi = useNavigate();
   const [film, setFilm] = useState<Film | null>(null);
+  const dataFetchedRef = useRef(false);
   useEffect(() => {
     const getFilm = async () => {
       const res = await fetcher(`/films/${id}`, getAccessToken() as string);
-      console.log(res.data);
-      
         setFilm(res);
-
     };
     getFilm();
   }, [episodeId, id]);
+  const getViewFilmInc = async () => {
+    await axios.get(process.env.REACT_APP_API_BASE_URL + `/films/updateAll/getViewInc/${id}`);
+
+  };
+  useEffect(()=>{
+    if (dataFetchedRef.current) return;
+      dataFetchedRef.current = true;
+    getViewFilmInc();
+  },[])
   return (
     <>
       <HeaderWrap>
@@ -90,21 +96,24 @@ const DetailFilm = () => {
           <ul className="recommend-list">
             {film &&
               film?.data.likeList.map((item: any, index: number) => {
-                return (
-                  <li className="recomment-item" key={index}>
-                    <a
-                    href={`/detail/${item.id}`}
-                      className="recomment-item-wrap"
-                    >
-                      <div className="video-card-wrap">
-                        <div className="img-wrap-vertical">
-                          <img src={`https://films-server.s3.ap-southeast-1.amazonaws.com/images/${item.verticalPoster}`} alt={item.name} loading="lazy" />
+                if(item){
+                  return (
+                    <li className="recomment-item" key={index}>
+                      <a
+                      href={`/detail/${item.id}`}
+                        className="recomment-item-wrap"
+                      >
+                        <div className="video-card-wrap">
+                          <div className="img-wrap-vertical">
+                            <img src={`https://films-server.s3.ap-southeast-1.amazonaws.com/images/${item.verticalPoster}`} alt={item.name} loading="lazy" />
+                          </div>
+                          <h3 className="video-card-title">{item.name}</h3>
                         </div>
-                        <h3 className="video-card-title">{item.name}</h3>
-                      </div>
-                    </a>
-                  </li>
-                );
+                      </a>
+                    </li>
+                  );
+                }
+                else return <></>;
               })}
           </ul>
         </div>
