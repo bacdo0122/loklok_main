@@ -38,7 +38,7 @@ export default function Comments({ filmId }: any) {
     }
   };
   useEffect(() => {
-    setSocket(io(`localhost:3000`));
+    setSocket(io(`https://d1bxobkgtkdezc.cloudfront.net`));
   }, []);
   useEffect(() => {
     if (socket) {
