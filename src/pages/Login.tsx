@@ -141,19 +141,17 @@ const Login = () => {
               <PasswordInput name="password" label="Password" control={control} placeholder="Enter your password" />
 
               <Box sx={{ mt: 1, display: 'flex', justifyContent: 'flex-end' }}>
+                Don&apos;t have an account 
                 <Link
-                  href="#"
+                  href="/signUp"
                   variant="body2"
                   sx={{
-                    fontSize: '10px',
-                    fontWeight: '400',
-                    lightHeight: '13px',
-                    letterSpacing: '0.1px',
-                    color: '#9FA2B4',
+                    color: 'blue',
+                    marginLeft: "5px",
                     textDecoration: 'none',
                   }}
                 >
-                  Forgot password?
+                  Sign Up
                 </Link>
               </Box>
               {submitErr && <ErrorText mt={1}>{submitErr}</ErrorText>}

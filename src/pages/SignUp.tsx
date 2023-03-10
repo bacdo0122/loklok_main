@@ -70,13 +70,14 @@ const SignUp = () =>{
           role: "user"
         });
         alert(`please verify email in your email`)
-        window.location.href = "http://localhost:3001/login"
+       navigate("/login")
       } catch (error) {
         
       }
     }
     return (
         <ThemeProvider theme={theme}>
+      
         <Container component="main" maxWidth="xs" sx={{
           height:"100vh",
           display:"flex",
