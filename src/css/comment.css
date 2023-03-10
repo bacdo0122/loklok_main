@@ -108,7 +108,7 @@ position: relative;
 .message{
     height: 30px;
     outline: none;
-    width: 250px;
+    width: 40%;
     position: relative;
     border-radius: 8px;
     display: flex;
@@ -120,8 +120,9 @@ position: relative;
     top: 0;
     outline: none;
     border: none;
-    width: 40px;
-    
+    width: 50px;
+    background-color: #007cba;
+    color: #fff;
     right: 0;
     cursor: pointer;
 }

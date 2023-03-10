@@ -84,7 +84,7 @@ export default function Comments({ filmId }: any) {
   return (
     <div style={{ marginTop: '40px' }}>
       <div className='message'>
-        <input type="text" id="message" ref={inputRef} />
+        <input type="text" id="message" ref={inputRef} placeholder="Write a comment"/>
         <button onClick={() => handleSubmitNewMessage('comment', 'comment', inputRef?.current?.value as string, 0)}>
           Send
         </button>

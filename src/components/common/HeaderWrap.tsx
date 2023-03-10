@@ -11,7 +11,8 @@ const Body = styled(Box)<BoxProps>({
     color: '#999',
     fontWeight: 'bold',
     lineHeight: '120%',
-    paddingTop: "20px"
+    paddingTop: "20px",
+    paddingBottom: "20px"
   });
 export const HeaderWrap = ({children}:any) => {
     return (

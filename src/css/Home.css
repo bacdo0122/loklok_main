@@ -47,9 +47,6 @@
         height: 40vw!important;
     }
 }
-@media screen and (max-width: 1024px){
-   
-}
 @media screen and (max-width: 768px){
     .banner_control{
         flex-wrap: wrap;
@@ -59,4 +56,15 @@
     flex-shrink: 0;
     margin-right: 10px!important;
     }
+}
+@media screen and (max-width: 425px){
+   .css-1psxrp6{
+    display:none!important;
+   }
+   .css-nrexdh-MuiSvgIcon-root{
+    display: none!important;
+   }
+   .css-wr5bkb-MuiSvgIcon-root{
+    display: none!important;
+   }
 }

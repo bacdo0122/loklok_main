@@ -125,7 +125,7 @@ const CommentItem = (props: Props) => {
             </ul>
             <div className={popInput ? `messageInput input_active ` : `messageInput `}>
                 <div className="message">
-                <input type="text" id="message" ref={inputRef} />
+                <input type="text" id="message" ref={inputRef} placeholder="Write a comment"/>
                 {popInput && <div className="reply-user-line"></div>}
                 <button onClick={() => {
                     handleSubmit(
