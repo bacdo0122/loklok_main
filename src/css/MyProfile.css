@@ -29,7 +29,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .css-1orc49x{
+    #container{
         min-width: auto!important;
     }
     .profile_body{

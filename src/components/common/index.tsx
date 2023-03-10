@@ -19,7 +19,7 @@ const ComponentWrap = ({children, headerData}:{children:any, headerData:string})
     return <>
     <Header data={headerData}/>
     {children}
-    <FixedBarWrap>
+    <FixedBarWrap id="fixed-bar">
         <a href="https://twitter.com/Loklok_app" className="iconBar" target="_blank" rel="noreferrer" style={{backgroundPosition:"center top"}}>
             <span>LokLok_app Twitter</span>
         </a>

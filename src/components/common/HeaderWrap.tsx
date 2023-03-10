@@ -17,7 +17,7 @@ const Body = styled(Box)<BoxProps>({
 export const HeaderWrap = ({children}:any) => {
     return (
         <ComponentWrap headerData="header-v-detail">
-            <Body>
+            <Body id="container">
                 {children}
             </Body>
         </ComponentWrap>

@@ -59,6 +59,7 @@ export const Slide = ({ films }: any) => {
         })}
       <ArrowBackIosNewIcon
         ref={prevRef}
+        id="arrow-back"
         sx={{
           position: 'absolute',
           color: '#fefefe',
@@ -78,6 +79,7 @@ export const Slide = ({ films }: any) => {
       />
       <ArrowForwardIosIcon
         ref={nextRef}
+        id="arrow-next"
         sx={{
           position: 'absolute',
           color: '#fefefe',

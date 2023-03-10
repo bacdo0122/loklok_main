@@ -58,13 +58,13 @@
     }
 }
 @media screen and (max-width: 425px){
-   .css-1psxrp6{
+   #fixed-bar{
     display:none!important;
    }
-   .css-nrexdh-MuiSvgIcon-root{
+   #arrow-back{
     display: none!important;
    }
-   .css-wr5bkb-MuiSvgIcon-root{
+   #arrow-next{
     display: none!important;
    }
 }

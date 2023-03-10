@@ -260,7 +260,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-    .css-1orc49x{
+    #container{
         padding-left: 20px;
         padding-right: 20px;
     }
@@ -269,7 +269,7 @@
     .recomment-item{
         width: 25%;
     }
-    .css-1orc49x{
+    #container{
         min-width: auto!important;
     }
     .detail-content{
@@ -291,7 +291,8 @@
     .content-list .content-item{
         margin: 0 5px;
     }
-    .comment{
-        
+    .message{
+        width: 60%!important;
+
     }
 }
